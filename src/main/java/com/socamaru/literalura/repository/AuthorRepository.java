@@ -13,7 +13,7 @@ import java.util.Optional;
 @Repository
 public interface AuthorRepository extends ListCrudRepository<Author, Long> {
 	Optional<Author> findByNameIgnoreCase(String name);
-
+    // Querie SQL
     @Query("SELECT a FROM Author a WHERE a.birthYear <= :year AND a.deathYear >= :year")
     List<Author> findAuthorsAliveInYear(@Param("year") int year);
 }
